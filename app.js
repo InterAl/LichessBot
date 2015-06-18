@@ -1,5 +1,4 @@
 ﻿var http = require('http');
-var qs = require('querystring');
 var child_process = require('child_process');
 
 function evaluate(fen) {
@@ -15,7 +14,7 @@ function evaluate(fen) {
 }
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
+  res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'origin, content-type'});
   console.log("incoming");
   if (req.method == 'POST') {
     var body = '';
@@ -27,15 +26,17 @@ http.createServer(function (req, res) {
         req.connection.destroy();
     });
     req.on('end', function () {
-      var post = qs.parse(body);
-
-      if (post[0] == "move") {
-        if (post["1[color]"] == "white") {
-          var move = evaluate(post["1[fen]"]);
-          res.end(JSON.stringify(move));
-        } else res.end("{}");
-      } else res.end("{}");
+      var post = JSON.parse(body);
+	  var move = post.move;
+	  if (!move) return res.end("{}");
+	  var activePlayer = move.color;
+	  var fen = move.fen + " " + post.player[0];
+	  console.log("fen", fen);
+	  if (activePlayer != post.player) {
+	    var move = evaluate(fen);
+	    res.end(JSON.stringify(move));
+	  } else res.end("{}");
     });
-  }
-}).listen(1337, '127.0.0.1');
+  } else res.end("");
+}).listen(1334, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:1337/');
