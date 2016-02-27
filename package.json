@@ -1,0 +1,10 @@
+{
+  "name": "proxy",
+  "version": "0.0.0",
+  "description": "proxy",
+  "main": "app.js",
+  "author": {
+    "name": "Alon",
+    "email": ""
+  }
+}
