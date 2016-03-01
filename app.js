@@ -1,6 +1,8 @@
 ﻿var http = require('http');
 var child_process = require('child_process');
 
+var white = process.argv[2] == "w";
+
 function evaluate(fen) {
   console.log("cogitating...");
   var output = child_process.execSync("node test \"" + fen + "\"", { encoding: "utf8" });
@@ -29,10 +31,10 @@ http.createServer(function (req, res) {
       var post = JSON.parse(body);
 	  var move = post.move;
 	  if (!move) return res.end("{}");
-	  var isBlackMove = move.ply % 2 == 1;
-	  var fen = move.fen + " b";
+	  var isWhiteMove = move.ply % 2 == 0;
+	  var fen = move.fen + (white ? " w" : " b");
 	  console.log("fen", fen);
-	  if (isBlackMove) {
+	  if ((!isWhiteMove || white) && (isWhiteMove || !white)) {
 	    var move = evaluate(fen);
 	    res.end(JSON.stringify(move));
 	  } else res.end("{}");
