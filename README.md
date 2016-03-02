@@ -1,23 +1,23 @@
 ﻿# Docs 
-I hate losing in Chess. Especially online. This program helps alleviate the pain a little bit.
+I hate losing in Chess. Especially online. This program helps alleviate my pain a little bit.
 
 # Usage
 ###Server:
 
-Start as white:
+Start as White:
 ```
-$ node app w 
+$ node server w 
 ```
 
-Start as black:
+Start as Black:
 ```
-$ node app b
+$ node server b
 ```
 
 ###Client:
 Just copy the content of client.js into your browser's console, inside the match-up window.
 
-#Additional remarks
+#Additional Remarks
 Please do not use this program in ranked play, unless you're a cheap loser like me.
 
 
