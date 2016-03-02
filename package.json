@@ -1,10 +1,10 @@
 {
-  "name": "proxy",
+  "name": "lichess-bot",
   "version": "0.0.0",
-  "description": "proxy",
+  "description": "Stockfish your way out.",
   "main": "app.js",
   "author": {
-    "name": "Alon",
-    "email": ""
+    "name": "InterAl",
+    "email": "interal@gmail.com"
   }
 }
