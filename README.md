@@ -2,16 +2,8 @@
 I hate losing in Chess. Especially online. This program helps alleviate my pain a little bit.
 
 # Usage
-###Server:
-
-Start as White:
 ```
-$ node server w 
-```
-
-Start as Black:
-```
-$ node server b
+$ npm start
 ```
 
 ###Client:
