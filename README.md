@@ -2,6 +2,7 @@
 A stockfish-based bot for lichess.org
 
 # Usage
+### Server:
 ```
 $ npm start
 ```
