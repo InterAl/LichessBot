@@ -14,4 +14,4 @@ Just copy the content of client.js into your browser's console, inside the match
 * You need to disable your browser's CSP. This Chrome extension does the job:
 https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden
 
-* Please do not use this program in ranked play, unless you're a cheap loser like me.
+* Created for educational purposes.
